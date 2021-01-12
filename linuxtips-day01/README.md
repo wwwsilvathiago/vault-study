@@ -48,3 +48,4 @@ The kv secrets engine is used to store arbitrary secrets within the configured p
 * vault secrets disable
 * vault secrets enable
   * vault secrets enable -version=2 $PATHOFSECRET
+* vault kv enable-versioning
