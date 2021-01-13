@@ -1,0 +1,19 @@
+[Unit]
+Description = Vault Server
+Requires = network-online.target
+After = network-online.target
+ConditionFileNotEmpty = /etc/vault/config.json
+
+[Service]
+User = vault
+Group = vault
+Restart = on-failure
+ExecStart = /usr/bin/vault server -config=/etc/vault/config.json
+StandardOutput = /var/log/vault/output.log
+StandardError = /var/log/vault/error.log
+ExecReload = /bin/kill -HUB $MAINPID
+KillSignal = SIGTERM
+LimitMEMLOCK = infinity
+
+[Install]
+WantedBy = multi-user.target
