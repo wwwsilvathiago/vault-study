@@ -7,3 +7,14 @@ storage "file" {
     tls_disable = 1
   }
 
+disable_mlock = true
+
+ui = true
+
+api_addr = 'http://0.0.0.0:8210'
+cluster_name = "VaultStudy"
+
+pid_file = "/var/lib/vault/vault.pid"
+
+max_lease_ttl = "12h"
+default_lease_ttl = "6h"
